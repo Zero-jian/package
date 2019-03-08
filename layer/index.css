@@ -1,0 +1,328 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.layer-mark {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+.layer-total-title {
+    width: auto;
+    display: inline-block;
+    max-width: 90%;
+    background: rgba(73,73,73,0.7);
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 13px;
+    -webkit-animation:moveTo 0.3s ease;
+            animation:moveTo 0.3s ease;
+}
+
+.layer-box-title{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+}
+
+@-webkit-keyframes moveTo{
+    0%{
+        margin-top:200%;
+        opacity: 0;
+    }
+
+    100%{
+        margin-top:0;
+        opacity: 0.7;
+    }
+}
+
+@keyframes moveTo{
+    0%{
+        margin-top:200%;
+        opacity: 0;
+    }
+
+    100%{
+        margin-top:0;
+        opacity: 0.7;
+    }
+}
+
+.layer-mark-info {
+    background:rgba(72,72,72,0.5);
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack:center;
+        -ms-flex-pack:center;
+            justify-content:center;
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
+}
+
+.layer-box-info{
+    overflow: hidden;
+    border-radius:5px;
+    height:auto;
+    width:85%;
+    -webkit-animation:scaleTo 0.5s ease;
+            animation:scaleTo 0.5s ease;
+}
+
+.layer-total-info{
+    border-radius:5px 5px 0 0;
+    background:#fefefe;
+    color:#323232;
+    text-align:center;
+    padding:12% 0;
+    font-size:12px
+}
+
+.layer-total-btn-info{
+    width:100%;
+    border:none;
+    background:#f1f1f1;
+    height:40px;
+    border-top:1px solid #cfcfcf;
+    outline:none;
+    color:#3faefd;
+    border-radius:0 0 5px 5px;
+    text-align:center;
+    line-height:40px;
+}
+
+@-webkit-keyframes scaleTo{
+    0%{
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }
+
+    100%{
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+
+@keyframes scaleTo{
+    0%{
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }
+
+    100%{
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+
+.layer-mark-answer {
+    background:rgba(72,72,72,0.5);
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack:center;
+        -ms-flex-pack:center;
+            justify-content:center;
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
+}
+
+.layer-box-answer{
+    border-radius:5px;
+    overflow: hidden;
+    height:auto;
+    width:85%;
+    -webkit-animation:scaleToTo 0.5s ease;
+            animation:scaleToTo 0.5s ease;
+}
+
+.layer-total-answer{
+    border-radius:5px 5px 0 0;
+    background:#fefefe;
+    color:#323232;
+    text-align:center;
+    padding:12% 0;
+    font-size:12px
+}
+
+.layer-total-btn-answer{
+    width:50%;
+    border:none;
+    background:#f1f1f1;
+    height:40px;
+    border-top:1px solid #cfcfcf;
+    outline:none;
+    color:#3faefd;
+    text-align:center;
+    line-height:40px;
+    float: left;
+}
+
+.layer-total-btn-answer:nth-child(2){
+    border-right:1px solid #cfcfcf;
+}
+
+@-webkit-keyframes scaleToTo{
+    0%{
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }
+
+    100%{
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+
+@keyframes scaleToTo{
+    0%{
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }
+
+    100%{
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+
+.layer-box-bot{
+    position: fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:0 auto;
+    width:90%;
+    text-align:center;
+    color:#323232;
+    font-size:14px;
+    animation:fixTo 0.4s ease;
+}
+
+.layer-mark-bot{
+    background:rgba(72,72,72,0.5);
+}
+
+.layer-total-bot {
+    background: rgba(217,217,217,0.9);
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #c1c1c1;
+    border-radius: 5px 5Px 0 0;
+}
+
+.layer-total-btn-bot:nth-child(2){
+    background: rgba(217,217,217,0.9);
+    height: 38px;
+    line-height: 38px;
+    margin-bottom:10px;
+    color:#fb4b2f;
+}
+
+.layer-total-btn-bot:nth-child(3){
+    background: rgba(217,217,217,0.9);
+    height: 38px;
+    line-height: 38px;
+    border-radius:5px 5px 0 0;
+    color:#49b1fb;
+}
+
+@keyframes fixTo{
+    0%{
+        -webkit-transform: translateY(100%);
+                transform: translateY(100);
+    }
+
+    100%{
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+}
+
+.layer-type-four{
+    background: rgba(72,72,72,0.5);
+}
+
+.layer-type-four-mark{
+    width: 80%;
+    height: 20%;
+    background: #fefefe;
+    position: relative;
+    top: 50%;
+    margin-top: -20%;
+    left: 50%;
+    margin-left: -40%;
+    border-radius: 5px;
+    animation: more 0.3s ease;
+    color: #323232;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+@keyframes more{
+    0%{
+        -webkit-transform: scale(0);
+    }
+
+    100%{
+        -webkit-transform: scale(1);
+    }
+}
+
+.layer-mark-botTitle{
+    background: rgba(72,72,72,0.5);
+}
+
+.layer-total-botTitle {
+    background: rgba(255, 252, 252, 0.9);
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #c1c1c1;
+    border-radius: 5px 5Px 0 0;
+    width: 90%;
+    position: fixed;
+    bottom: 10px;
+    left: 5%;
+    text-align: center;
+    font-size: 13px;
+    color: #323232;
+    animation:fixTo 0.2s ease;
+}
+
+@keyframes more{
+    0%{
+        margin-top:10%;
+    }
+
+    100%{
+        margin-top:0%;
+    }
+}
