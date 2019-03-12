@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./carousel.css">
+</head>
+<body>
+    <div class="layui-carousel">
+        <div class="carousel-item">
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+        </div>
+    </div>
+    <script src="./carousel.js"></script>
+    <script>
+        var carousel = new carousel();
+        carousel.render({
+            width:'60%',//宽度
+            height:'280px',//长度
+            defineIndex:1,//开始下标
+            autoplay:false,//是否允许自动播放
+            interval:20,//运行间隔
+            arrow:false,//是否隐藏箭头
+            animate:'fade'//轮播图运动类型选择，支持defaule以及fade
+        });
+    </script>
+</body>
+</html>
