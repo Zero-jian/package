@@ -74,9 +74,6 @@ class Calendar {
         calendar.appendChild(ol);
         let weekIndex = this.createArray(7, startOfWeek).map((day, i) => {
             let li = dom.create(`<li>${strings.week(i)}</li>`);
-            if ((i == 0) || (i == 6)) {
-                li.classList.add('weekend');
-            }
             //判断是否为今天
             ol.appendChild(li);
         });
