@@ -32,7 +32,6 @@ class Pager extends Dom {
             element: null,
             totalPage: 20,
             templates: {
-                number: '<span>%page%</span>',
                 first: '<button class="first">首页</button>',
                 last: '<button class="last">末页</button>',
                 next: '<button class="next">下一页</button>',
