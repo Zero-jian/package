@@ -113,7 +113,7 @@ class Pager extends Dom {
     }
 
     _checkNumber() {
-        let pageBtn = '',ol='',end='',start='';
+        let pageBtn,ol,end,start;
         //判断是否为初次创建
         if(arguments.length) {
             ol = document.querySelector(`ol[data-role="pageNumbers"]`);
