@@ -34,7 +34,7 @@ class Calendar {
             days: {},
         }
         this.options = Object.assign({}, defaluteOptions, options);
-        this.checkOptions()._generateTime()._generateWeekDay()._generateCurrentDay();
+        this.checkOptions()._generateTime()._generateWeekDay()._generatePrevMonth();
     }
 
     checkOptions() {
@@ -83,31 +83,23 @@ class Calendar {
     //创建当前月份日子
     _generateCurrentDay() {
         let date = this.options.days;
-        let calendar = document.querySelector('.calendar');
-        let ol = dom.create(`<ol class="days"></ol>`);
-        let getWeek = this._getWeekWeek(date.year, date.month-1, date.day); //星期几
+        let getWeek = this._getWeekWeek(date.year, date.month - 1, date.day); //星期几
         let getMonth = this._getMonth(date.year, date.month) //月份天数
         let getMonthDay = this._getWeekDay(); //几号
-        date.countDay = 0;
-        date.countDay += getMonth;
-        calendar.appendChild(ol);
+        let li = document.querySelectorAll('.dayLabel>.day');
         //创建当月日子模块
-        let dayIndex = this.createArray(42, this.options.startOfWeek).map((day, i) => {
-            let li = dom.create(this.options.strings.templateDay);
-            let span = li.querySelector('.dayLabel>.day');
+        let dayIndex = this.createArray(getMonth, this.options.startOfWeek).map((day, i) => {
             //判断日历起止
-            if (i >= getWeek && i <= (getMonth + getWeek)) {
-                span.textContent = i - getWeek;
-            }
-
+            i += date.countDay;
+            li[i].textContent = i - date.countDay + 1;
             //判断是否为今天
-            if (i == (getMonthDay + getWeek) && date.noMonth == date.month && date.noYear == date.year) {
-                li.classList.add('today');
+            if (i == (getMonthDay + date.countDay - 1) && date.noMonth == date.month && date.noYear == date.year) {
+                li[i].parentNode.classList.add('today');
             }
-            ol.appendChild(li);
         });
-        document.querySelector('h1.date').appendChild(dom.create(`<p data-role="time">${date.year}-${date.month}-${date.day}</p>`));
-        this._generatePrevMonth()._generateNextMonth();
+        date.countDay += getMonth;
+
+        return this;
 
     }
 
@@ -116,17 +108,28 @@ class Calendar {
         let date = this.options.days;
         let year = date.year;
         let month = date.month;
-        let beginWeek = this._getWeekWeek(year,month-1,1);//开始星期
-        let countMonth = this._getMonth(year,month-1);//上月月份天数
+        let beginWeek = this._getWeekWeek(year, month - 1, 1); //开始星期
+        let countMonth = this._getMonth(year, month - 1); //上月月份天数
+
+        let calendar = document.querySelector('.calendar');
+        let ol = dom.create(`<ol class="days"></ol>`);
         let li = document.querySelectorAll('.dayLabel>.day');
-        beginWeek == 0 ? beginWeek+= 7 : ''; //如果月份开头为星期日，会出bug，这是防止
+        calendar.appendChild(ol);
+
+        date.countDay = 0;
+        beginWeek == 0 ? beginWeek += 7 : ''; //如果月份开头为星期日，会出bug，这是防止
         date.countDay += beginWeek;
-        this.createArray(beginWeek,this.options.startOfWeek).map((day,i)=>{
-            if(i<beginWeek) {
-                li[i].textContent = countMonth - beginWeek + 1 + i;
+        this.createArray(42, this.options.startOfWeek).map((day, i) => {
+            let li = dom.create(this.options.strings.templateDay);
+            let span = li.querySelector('.dayLabel>.day');
+            if (i < beginWeek) {
+                span.textContent = countMonth - beginWeek + 1 + i;
             }
-        }); 
-        return this;
+            ol.appendChild(li);
+        });
+
+        document.querySelector('h1.date').appendChild(dom.create(`<p data-role="time">${date.year}-${date.month}-${date.day}</p>`));
+        this._generateCurrentDay()._generateNextMonth();
     }
 
     //创建下个月日子
@@ -134,11 +137,11 @@ class Calendar {
         let date = this.options.days;
         let year = date.year;
         let month = date.month;
-        let beginWeek = this._getWeekWeek(year,month,1);//开始星期
-        let countMonth = this._getMonth(year,month+1);//下月月份天数
+        let beginWeek = this._getWeekWeek(year, month, 1); //开始星期
+        let countMonth = this._getMonth(year, month + 1); //下月月份天数
         let li = document.querySelectorAll('.dayLabel>.day');
-        this.createArray(42-date.countDay , this.options.startOfWeek).map((day,i)=>{
-            li[date.countDay+i].textContent = i+1;
+        this.createArray(42 - date.countDay, this.options.startOfWeek).map((day, i) => {
+            li[date.countDay + i].textContent = i + 1;
         });
     }
 
@@ -186,14 +189,14 @@ class Calendar {
     //封装月份dom
     changeMonth(status) {
         let date = this.options.days;
-        switch(status) {
+        switch (status) {
             case 'prev': {
-                --date.month < 1 ?  date.year-- ? date.month = 12 : '' : '';
+                --date.month < 1 ? date.year-- ? date.month = 12 : '' : '';
                 break;
             }
 
             case 'next': {
-                ++date.month > 12 ?  date.year++ ? date.month = 1 : '' : '';
+                ++date.month > 12 ? date.year++ ? date.month = 1 : '' : '';
                 break;
             }
 
@@ -203,6 +206,6 @@ class Calendar {
             }
         }
         this._generateCalendar();
-        this._generateCurrentDay();
+        this._generatePrevMonth();
     }
 }
