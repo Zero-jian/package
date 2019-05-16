@@ -93,13 +93,13 @@ class Pager extends Dom {
         });
         //为下一页添加点击事件
         this.on(next,'click',e=>{
-            this.options.currentPage += 1;
+            this.options.currentPage = (this.options.currentPage * 1 ) + 1;
             this._checkNumber('more');
             this._checkButton();
         });
         //为上一页添加点击事件
         this.on(prev,'click',e=>{
-            this.options.currentPage -= 1;
+            this.options.currentPage = (this.options.currentPage * 1 ) - 1;
             this._checkNumber('more');
             this._checkButton();
         });
