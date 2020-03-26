@@ -1,19 +1,13 @@
-﻿<!-- > [layer文档说明](https://github.com/Zero-jian/package/blob/master/layer/index.doc?raw=true)
+layer => 弹出框组件
 
-> [carousel文档说明](https://github.com/Zero-jian/package/blob/master/carousel/carousel.docx?raw=true)
+carousel => 轮播图组件
 
-> [distpicker文档说明](https://github.com/Zero-jian/package/blob/master/distpicker/distpicker.docx?raw=true) -->
+distpicker => 三相联动组件
 
-[layer效果预览(手机端)](http://www.molijian.club/work/package/layer/index.html)
+fullpage => 翻滚页组件
 
-[carousel效果预览](http://www.molijian.club/work/package/carousel/carousel.html)
+pager => 分页组件
 
-[distpicker效果预览](http://www.molijian.club/work/package/distpicker/index.html)
+tab => tab栏组件
 
-[fullpage效果预览](http://www.molijian.club/work/package/fullpage/fullpage.html)
-
-[pager效果预览](http://www.molijian.club/work/package/pager/pager.html)
-
-[tab效果预览](http://www.molijian.club/work/package/tab/tab.html)
-
-[calendar效果预览](http://www.molijian.club/work/package/calendar/calendar.html)
+calendar => 日历组件
